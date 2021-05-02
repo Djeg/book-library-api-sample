@@ -3,6 +3,13 @@ import {Entity, model, property} from '@loopback/repository';
 @model({settings: {strict: false}})
 export class Book extends Entity {
   @property({
+    type: 'number',
+    id: true,
+    generated: true,
+  })
+  id?: number;
+
+  @property({
     type: 'string',
     required: true,
   })
@@ -34,10 +41,17 @@ export class Book extends Entity {
   images?: object[];
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  author: string;
+
+  @property({
     type: 'date',
+    required: true,
     default: Date.now(),
   })
-  publishedAt?: string;
+  publishedAt: string;
 
   @property({
     type: 'number',
