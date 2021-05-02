@@ -1,0 +1,63 @@
+import {Entity, model, property} from '@loopback/repository';
+
+@model({settings: {strict: false}})
+export class Book extends Entity {
+  @property({
+    type: 'string',
+    required: true,
+  })
+  title: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  description: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  shortDescription: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  stars: number;
+
+  @property({
+    type: 'array',
+    itemType: 'object',
+    default: [],
+  })
+  images?: object[];
+
+  @property({
+    type: 'date',
+    default: Date.now(),
+  })
+  publishedAt?: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  price: number;
+
+  // Define well-known properties here
+
+  // Indexer property to allow additional data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [prop: string]: any;
+
+  constructor(data?: Partial<Book>) {
+    super(data);
+  }
+}
+
+export interface BookRelations {
+  // describe navigational properties here
+}
+
+export type BookWithRelations = Book & BookRelations;
