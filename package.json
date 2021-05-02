@@ -50,6 +50,7 @@
   ],
   "dependencies": {
     "@loopback/boot": "^3.3.1",
+    "@loopback/cli": "^2.20.2",
     "@loopback/core": "^2.15.1",
     "@loopback/repository": "^3.5.1",
     "@loopback/rest": "^9.2.1",
