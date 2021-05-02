@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Book} from './book.model';
+import {CategoryAndBook} from './category-and-book.model';
 
 @model({settings: {strict: false}})
 export class Category extends Entity {
@@ -15,6 +17,8 @@ export class Category extends Entity {
   })
   title: string;
 
+  @hasMany(() => Book, {through: {model: () => CategoryAndBook}})
+  books: Book[];
   // Define well-known properties here
 
   // Indexer property to allow additional data
