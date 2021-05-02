@@ -12,7 +12,7 @@
     "node": ">=10.16"
   },
   "scripts": {
-    "build": "lb-tsc",
+    "build": "npx lb-tsc",
     "build:watch": "lb-tsc --watch",
     "lint": "yarn run eslint && yarn run prettier:check",
     "lint:fix": "yarn run eslint:fix && yarn run prettier:fix",
@@ -33,7 +33,7 @@
     "openapi-spec": "node ./dist/openapi-spec",
     "prestart": "yarn run rebuild",
     "start": "node -r dotenv/config .",
-    "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
+    "clean": "npx lb-clean dist *.tsbuildinfo .eslintcache",
     "rebuild": "yarn run clean && yarn run build"
   },
   "repository": {
